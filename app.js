@@ -15,7 +15,11 @@ var client = new Twitter({
 	access_token_secret: process.env.ACCESS_TOKEN_SECRET
 });
 
-app.get('/:name', (req, res) => {
+app.get('/', (req, res) => {
+	res.json('Welcome!');
+});
+
+app.get('/users/:name', (req, res) => {
 	client.get('users/search', { q: req.params.name }, function(
 		error,
 		tweets,
